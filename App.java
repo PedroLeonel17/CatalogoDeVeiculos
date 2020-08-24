@@ -29,4 +29,56 @@ public class App {
         return tit + op1 + op2 + op3 + op4 + op5 + op6 + op7;
     }
 
+    public static void MainMenu(Scanner sc, Catalogo cat) {
+        int opcao;
+        boolean rodando = true;
+        while (rodando) {
+            System.out.println(menuOpcoes());
+            opcao = sc.nextInt();
+            while (opcao <= 0 || opcao >= 8) {
+                opcao = sc.nextInt();
+            }
+            switch (opcao) {
+                case 1:
+                    System.out.println("\n============================================================");
+                    System.out.println("Motos Filtradas: \n");
+                    cat.filtrarMotos();
+                    System.out.println("============================================================");
+                    break;
+                case 2:
+                    System.out.println("\n============================================================");
+                    System.out.println("Carros Filtrados: \n");
+                    cat.filtrarCarros();
+                    System.out.println("============================================================");
+                    break;
+                case 3:
+                    System.out.println("\n============================================================");
+                    System.out.println("Caminhoes Filtrados: \n");
+                    cat.filtrarCaminhoes();
+                    System.out.println("============================================================");
+                    break;
+                case 4:
+                    System.out.println("\n============================================================");
+                    System.out.println("Maiores Precos: \n");
+                    cat.filtrarMaiorPreco();
+                    System.out.println("============================================================");
+                    break;
+                case 5:
+                    System.out.println("\n============================================================");
+                    System.out.println("Menores Precos: \n");
+                    cat.filtrarMenorPreco();
+                    System.out.println("============================================================");
+                    break;
+                case 6:
+                    System.out.println("\n============================================================");
+                    System.out.println("Popularidade: \n");
+                    cat.filtrarPopularidade();
+                    System.out.println("============================================================");
+                    break;
+                case 7:
+                    rodando = false;
+                    break;
+            }
+        }
+    }
 }
