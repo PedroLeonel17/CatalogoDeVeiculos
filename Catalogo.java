@@ -1,3 +1,4 @@
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -20,4 +21,32 @@ public class Catalogo {
         veiculosAVenda.add(new Caminhao("Delivery Express 2p", 2, "Volkswagen", 123571.00f));
         veiculosAVenda.add(new Caminhao("F-4000 4x2 2p", 3, "Ford", 136438.00f));
     }
+
+    public void filtrarCaminhoes() {
+        veiculosAVenda.stream().filter(c -> c instanceof Caminhao).forEach(System.out::println);
+    }
+
+    public void filtrarCarros() {
+        veiculosAVenda.stream().filter(c -> c instanceof Carro).forEach(System.out::println);
+    }
+
+    public void filtrarMotos() {
+        veiculosAVenda.stream().filter(c -> c instanceof Moto).forEach(System.out::println);
+    }
+
+    public void filtrarPopularidade() {
+        Collections.sort(veiculosAVenda, new OrdenaPorPopularidade());
+        veiculosAVenda.stream().forEach(System.out::println);
+    }
+
+    public void filtrarMaiorPreco() {
+        Collections.sort(veiculosAVenda, new OrdenaMaiorPreco());
+        veiculosAVenda.stream().forEach(System.out::println);
+    }
+
+    public void filtrarMenorPreco() {
+        Collections.sort(veiculosAVenda, new OrdenaMenorPreco());
+        veiculosAVenda.stream().forEach(System.out::println);
+    }
+
 }
